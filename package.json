@@ -15,9 +15,13 @@
   "type": "module",
   "main": "bin/brain-games.js",
   "scripts": {
+    "lint": "npx eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^5.5.0"
   }
 }
