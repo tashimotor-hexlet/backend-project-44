@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
 import { playGame } from '../src/cli.js'
-import { ProgressionGame } from '../src/games/progression.js'
+import progressionGame from '../src/games/progression.js'
 
-playGame(ProgressionGame)
+playGame(progressionGame)

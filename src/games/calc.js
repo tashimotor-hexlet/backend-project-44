@@ -1,36 +1,28 @@
-export class CalcGame {
-  #question
-  #correctAnswer
+const getDescription = () => 'What is the result of the expression?'
 
-  constructor() {
-    const a = Math.floor(Math.random() * 100)
-    const b = Math.floor(Math.random() * 100)
-    const operator = ['+', '-', '*'][Math.floor(Math.random() * 3)]
-
-    this.#question = `Question: ${a} ${operator} ${b}`
-
-    switch (operator) {
-      case '+':
-        this.#correctAnswer = a + b
-        break
-      case '-':
-        this.#correctAnswer = a - b
-        break
-      case '*':
-        this.#correctAnswer = a * b
-        break
-    }
+const generateRound = () => {
+  const a = Math.floor(Math.random() * 100)
+  const b = Math.floor(Math.random() * 100)
+  const operator = ['+', '-', '*'][Math.floor(Math.random() * 3)]
+  let correctAnswer
+  switch (operator) {
+    case '+':
+      correctAnswer = a + b
+      break
+    case '-':
+      correctAnswer = a - b
+      break
+    case '*':
+      correctAnswer = a * b
+      break
   }
-
-  getCorrectAnswer() {
-    return this.#correctAnswer
+  return {
+    question: `${a} ${operator} ${b}`,
+    correctAnswer: correctAnswer.toString(),
   }
+}
 
-  getQuestion() {
-    return this.#question
-  }
-
-  static getDescription() {
-    return 'What is the result of the expression?'
-  }
+export default {
+  getDescription,
+  generateRound,
 }

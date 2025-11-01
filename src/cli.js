@@ -8,24 +8,25 @@ const greet = () => {
   return name
 }
 
-const playGame = (gameClass) => {
+const playGame = (game) => {
   const name = greet()
 
-  console.log(gameClass.getDescription())
+  console.log(game.getDescription())
 
   for (let i = 0; i < 3; i += 1) {
-    const game = new gameClass()
-    console.log(`Question: ${game.getQuestion()}`)
+    const { question, correctAnswer } = game.generateRound()
+    console.log(`Question: ${question}`)
     const answer = readlineSync.question('Your answer: ')
-    if (answer === game.getCorrectAnswer()) {
+    if (answer === correctAnswer) {
       console.log('Correct!')
     }
     else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${game.getCorrectAnswer()}'.`)
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
       console.log(`Let's try again, ${name}!`)
       return
     }
   }
+  console.log(`Congratulations, ${name}!`)
 }
 
 export { greet, playGame }
