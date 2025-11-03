@@ -1,2 +1,13 @@
-.idea
-.env*
+node_modules/
+coverage/
+*.log
+*.tmp
+.DS_Store
+.env
+dist/
+npm-debug.log*
+.idea/
+.vscode/
+*.cast
+gifs/
+
